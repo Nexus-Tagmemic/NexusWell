@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cataract Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#001F3F',
+                        'royal-blue': '#0074D9',
+                        'ivory': '#FFFFF0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(180deg, #0074D9 0%, #001F3F 100%);
+        }
+
+        .gradient-bg-reverse {
+            background: linear-gradient(180deg, #FFFFF0 0%, #F5F5DC 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-ivory">
+    <div class="container mx-auto p-4">
+        <div class="flex flex-col lg:flex-row gap-4">
+            <div class="flex-grow">
+                <!-- Eye Image Upload Area -->
+                <div class="gradient-bg rounded-lg p-4 mb-4">
+                    <div class="flex items-center mb-4">
+                        <div class="gradient-bg-reverse rounded-lg p-2 flex items-center">
+                            <img src="{{ url_for('static', filename='images/eye.png') }}" alt="Eye"
+                                class="w-8 h-8 mr-2">
+                            <span class="text-navy text-xl">Eye Image</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center h-64 border-2 border-dashed border-ivory rounded-lg"
+                        id="eyeDropArea">
+                        <img src="{{ url_for('static', filename='images/upload.png') }}" alt="Upload"
+                            class="w-12 h-auto mb-4">
+                        <div class="text-ivory text-xl text-center mb-2">Drop Image Here</div>
+                        <div class="text-ivory text-xl text-center mb-2">- or -</div>
+                        <label for="eyeUpload"
+                            class="text-ivory text-xl text-center cursor-pointer hover:underline">Click to
+                            Upload</label>
+                        <input type="file" id="eyeUpload" class="hidden" accept="image/*">
+                    </div>
+                    <div id="eyePreview" class="mt-4 hidden">
+                        <img id="eyePreviewImage" src="" alt="Eye Image Preview" class="max-w-full max-h-full">
+                    </div>
+                </div>
+
+                <!-- Segmented Image Upload Area -->
+                <div class="gradient-bg rounded-lg p-4 mb-4">
+                    <div class="flex items-center mb-4">
+                        <div class="gradient-bg-reverse rounded-lg p-2 flex items-center">
+                            <img src="{{ url_for('static', filename='images/circle-chart.png') }}" alt="Circle chart"
+                                class="w-8 h-auto mr-2">
+                            <span class="text-navy text-xl">Segmented Image</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center h-64 border-2 border-dashed border-ivory rounded-lg"
+                        id="segmentedDropArea">
+                        <img src="{{ url_for('static', filename='images/upload.png') }}" alt="Upload"
+                            class="w-12 h- mb-4">
+                        <div class="text-ivory text-xl text-center mb-2">Drop Image Here</div>
+                        <div class="text-ivory text-xl text-center mb-2">- or -</div>
+                        <label for="segmentedUpload"
+                            class="text-ivory text-xl text-center cursor-pointer hover:underline">Click to
+                            Upload</label>
+                        <input type="file" id="segmentedUpload" class="hidden" accept="image/*">
+                    </div>
+                    <div id="segmentedPreview" class="mt-4 hidden">
+                        <img id="segmentedPreviewImage" src="" alt="Segmented Image Preview"
+                            class="max-w-full max-h-full">
+                    </div>
+                </div>
+
+                <!-- Results Area -->
+                <div class="gradient-bg rounded-lg p-4">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <div class="text-ivory text-xl mb-2">Stage</div>
+                            <div class="gradient-bg-reverse rounded-lg p-2 h-20"></div>
+                        </div>
+                        <div>
+                            <div class="text-ivory text-xl mb-2">Raw</div>
+                            <div class="gradient-bg-reverse rounded-lg p-2 mb-2"></div>
+                            <div class="text-ivory text-xl mb-2">Database</div>
+                            <div class="gradient-bg-reverse rounded-lg p-2"></div>
+                        </div>
+                        <div>
+                            <div class="text-ivory text-xl mb-2">Debug</div>
+                            <div class="gradient-bg-reverse rounded-lg p-2 h-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="gradient-bg rounded-lg p-4 lg:w-1/5">
+                <div class="flex justify-between items-end h-full">
+                    <div class="gradient-bg-reverse rounded-lg p-2 flex items-center justify-center text-xl w-12 h-12">0
+                    </div>
+                    <div class="gradient-bg-reverse rounded-lg p-2 flex items-center justify-center text-xl w-12 h-12">0
+                    </div>
+                    <div class="gradient-bg-reverse rounded-lg p-2 flex items-center justify-center text-xl w-12 h-12">0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleFileUpload(file, previewId, imageId) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById(previewId).classList.remove('hidden');
+                document.getElementById(imageId).src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function setupDropArea(dropAreaId, inputId, previewId, imageId) {
+            const dropArea = document.getElementById(dropAreaId);
+            const input = document.getElementById(inputId);
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            dropArea.addEventListener('drop', handleDrop, false);
+            input.addEventListener('change', handleInputChange, false);
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const file = dt.files[0];
+                handleFileUpload(file, previewId, imageId);
+            }
+
+            function handleInputChange() {
+                const file = this.files[0];
+                handleFileUpload(file, previewId, imageId);
+            }
+        }
+
+        setupDropArea('eyeDropArea', 'eyeUpload', 'eyePreview', 'eyePreviewImage');
+        setupDropArea('segmentedDropArea', 'segmentedUpload', 'segmentedPreview', 'segmentedPreviewImage');
+    </script>
+</body>
+
+</html>
