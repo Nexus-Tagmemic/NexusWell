@@ -11,6 +11,7 @@ import Asset11 from "../../public/asset-11.svg";
 import Asset12 from "../../public/asset-12.svg";
 import Logo from "../../public/logo.svg";
 import Robot from "../../public/robot.svg";
+import Navbar from "../app/components/navbar";
 
 export default function Home() {
   return (
@@ -19,7 +20,8 @@ export default function Home() {
         <title>Landing Page</title>
       </Head>
       {/* Navbar */}
-      <nav className="bg-green-50 py-6 px-32 flex justify-between items-center space-x-32 overflow-visible">
+      <Navbar />
+      {/* <nav className="bg-green-50 py-6 px-32 flex justify-between items-center space-x-32 overflow-visible">
         <div className="text-green-600 text-4xl font-bold">NexusCo.</div>
         <div className="flex space-x-4">
           <Link
@@ -41,7 +43,7 @@ export default function Home() {
             Contact
           </Link>
         </div>
-      </nav>
+      </nav> */}
       {/* Main content */}
 
       <div className="relative h-screen overflow-visible">
@@ -75,8 +77,8 @@ export default function Home() {
                   alt="Asset"
                   src={Robot}
                   layout="intrinsic"
-                  width={700}
-                  height={690}
+                  width={680}
+                  height={630}
                   objectFit="cover"
                 />
                 <Image

@@ -10,7 +10,9 @@ import Logo from "../../../public/logo.svg";
 export default function Navbar() {
   return (
     <nav className="bg-green-50 py-6 px-32 flex justify-between items-center space-x-32 overflow-visible">
-      <div className="text-green-600 text-4xl font-bold">NexusCo.</div>
+      <Link className="text-green-600 text-4xl font-bold" href="/">
+        NexusCo.
+      </Link>
       <div className="flex space-x-4">
         <Link
           href="/"
