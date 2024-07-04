@@ -22,7 +22,7 @@ const Sidebar = () => {
         <div className="flex flex-col items-center">
           <div className="mt-4">
             <a
-              href="#"
+              href="/"
               className="text-white 
                           hover:text-gray-300"
             >
@@ -31,7 +31,7 @@ const Sidebar = () => {
           </div>
           <div className="mt-4">
             <a
-              href="#"
+              href="/about-us"
               className="text-white 
                           hover:text-gray-300"
             >
