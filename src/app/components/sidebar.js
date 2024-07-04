@@ -38,6 +38,33 @@ const Sidebar = () => {
               About
             </a>
           </div>
+          <div className="mt-4">
+            <a
+              href="/context-info"
+              className="text-white 
+                          hover:text-gray-300"
+            >
+              Context Information
+            </a>
+          </div>
+          <div className="mt-4">
+            <a
+              href="/database-view"
+              className="text-white 
+                          hover:text-gray-300"
+            >
+              Database View
+            </a>
+          </div>
+          <div className="mt-4">
+            <a
+              href="/chatbot"
+              className="text-white 
+                          hover:text-gray-300"
+            >
+              Chat Assistant
+            </a>
+          </div>
           {/* Add more sidebar items here */}
         </div>
       </div>
