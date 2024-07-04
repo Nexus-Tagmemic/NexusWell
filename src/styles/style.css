@@ -1,0 +1,234 @@
+.landing-page {
+  background-color: #ffffff;
+  height: screen;
+  width: 100vh;
+}
+
+.landing-page .overlap {
+  height: screen;
+  position: relative;
+}
+
+.landing-page .frame {
+  background-color: #f1f8e8;
+  height: screen;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vh;
+}
+
+.landing-page .div {
+  align-items: center;
+  display: flex;
+  gap: 90px;
+  height: 64px;
+  justify-content: center;
+  left: 1114px;
+  padding: 12px 0px;
+  position: absolute;
+  top: 42px;
+  width: 763px;
+}
+
+.landing-page .text-wrapper {
+  color: #55ad9b;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 34px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .overlap-group {
+  height: 954px;
+  left: 0;
+  position: absolute;
+  top: 126px;
+  width: 1920px;
+}
+
+.landing-page .overlap-2 {
+  height: 883px;
+  left: 0;
+  position: absolute;
+  top: 71px;
+  width: 1920px;
+}
+
+.landing-page .overlap-group-2 {
+  height: 726px;
+  left: 0;
+  position: absolute;
+  top: 157px;
+  width: 1920px;
+}
+
+.landing-page .asset {
+  height: 566px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 160px;
+  width: 1919px;
+}
+
+.landing-page .img {
+  height: 298px;
+  left: 1267px;
+  object-fit: cover;
+  position: absolute;
+  top: 428px;
+  width: 653px;
+}
+
+.landing-page .asset-2 {
+  height: 186px;
+  left: 909px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 186px;
+}
+
+.landing-page .asset-3 {
+  height: 316px;
+  left: 523px;
+  object-fit: cover;
+  position: absolute;
+  top: 270px;
+  width: 316px;
+}
+
+.landing-page .asset-4 {
+  height: 277px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 449px;
+  width: 839px;
+}
+
+.landing-page .nexus-is-an-AI-app {
+  color: #284228;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 170px;
+  left: 174px;
+  letter-spacing: 0;
+  line-height: 34px;
+  position: absolute;
+  top: 35px;
+  width: 552px;
+}
+
+.landing-page .div-wrapper {
+  background-color: #55ad9b;
+  border-radius: 13px;
+  height: 58px;
+  left: 176px;
+  overflow: hidden;
+  position: absolute;
+  top: 223px;
+  width: 177px;
+}
+
+.landing-page .text-wrapper-2 {
+  color: #f1f8e8;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  height: 34px;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: 34px;
+  position: absolute;
+  top: 11px;
+  white-space: nowrap;
+}
+
+.landing-page .asset-5 {
+  height: 316px;
+  left: 1604px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 316px;
+}
+
+.landing-page .asset-6 {
+  height: 186px;
+  left: 1362px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 186px;
+}
+
+.landing-page .flexcontainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  height: 104px;
+  left: 174px;
+  position: absolute;
+  top: 124px;
+  width: 324px;
+}
+
+.landing-page .text {
+  align-self: stretch;
+  color: #55ad9b;
+  font-family: "Inter-ExtraBold", Helvetica;
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 34px;
+  position: relative;
+}
+
+.landing-page .span {
+  color: #55ad9b;
+  font-family: "Inter-ExtraBold", Helvetica;
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 34px;
+}
+
+.landing-page .text-wrapper-3 {
+  color: #55ad9b;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  height: 34px;
+  left: 195px;
+  letter-spacing: 0;
+  line-height: 34px;
+  position: absolute;
+  top: 56px;
+  white-space: nowrap;
+}
+
+.landing-page .image {
+  height: 105px;
+  left: 54px;
+  object-fit: cover;
+  position: absolute;
+  top: 21px;
+  width: 120px;
+}
+
+.landing-page .asset-7 {
+  height: 883px;
+  left: 909px;
+  object-fit: cover;
+  position: absolute;
+  top: 197px;
+  width: 933px;
+}

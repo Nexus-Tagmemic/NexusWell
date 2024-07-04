@@ -11,6 +11,12 @@ module.exports = {
     extend: {
       colors: {
         // Define custom colors here
+        green: {
+          50: "#F1F8E8",
+          100: "#D8EFD3",
+          200: "#95D2B3",
+          300: "#55AD9B",
+        },
         navy: "#001f3f",
         ivory: "#FFFFF0",
         "gradient-bg": {
@@ -23,7 +29,22 @@ module.exports = {
         "gradient-bg-reverse":
           "linear-gradient(180deg, #FFFFF0 0%, #F5F5DC 100%)",
       },
+      keyframes: {
+        bounce: {
+          "0%, 100%": {
+            transform: "translateY(-5%)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
+      },
+      animation: {
+        bounce: "bounce 2s infinite",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

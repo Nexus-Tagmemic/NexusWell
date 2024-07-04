@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import "../../styles/global.css";
+import "../../styles/globals.css";
 import UploadImage from "../../../public/static/images/upload.png";
 import eyeImage from "../../../public/static/images/eye.png";
 import circleChartImage from "../../../public/static/images/circle-chart.png";
